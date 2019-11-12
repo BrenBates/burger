@@ -9,4 +9,6 @@ VALUES('Big Benny', false);
 INSERT INTO burgers(burger_name,devoured) 
 VALUES('PB and J Burger', false);
 
+SELECT * FROM burgers;
+
 
