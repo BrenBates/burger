@@ -2,10 +2,10 @@
 // Export the connection.
 var mysql = require("mysql");
 
-var port = process.env.PORT || 8080;
-
-if (port === 8080) {
-
+   
+if(process.env.CLEARDB_DATABASE_URL) {
+    connection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL);
+} else {
 var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
@@ -13,16 +13,6 @@ var connection = mysql.createConnection({
     password: "",
     database: "burgers_db"
 });
-} else {
-    //Live Server
-    var connection = mysql.createConnection({
-        host: "mysql://b073078c813114:13d6b269@us-cdbr-iron-east-05.cleardb.net/heroku_d0c56e63217e378?reconnect=true",
-        port: 3306,
-        user: "b073078c813114",
-        password: "13d6b269",
-        database: "heroku_d0c56e63217e378"
-    })
-
 }
 
 // Make connection.
