@@ -2,7 +2,7 @@
 // Export the connection.
 var mysql = require("mysql");
 
-    port = process.env.PORT || 8080;
+var port = process.env.PORT || 8080;
 
 if (port === 8080) {
 
