@@ -19,7 +19,8 @@ var connection = mysql.createConnection({
         host: "mysql://b073078c813114:13d6b269@us-cdbr-iron-east-05.cleardb.net/heroku_d0c56e63217e378?reconnect=true",
         port: 3306,
         user: "b073078c813114",
-        password: "13d6b269"
+        password: "13d6b269",
+        database: "heroku_d0c56e63217e378"
     })
 
 }
