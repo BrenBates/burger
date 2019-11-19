@@ -21,7 +21,7 @@ var connection = mysql.createConnection({
 
 }
 
-    connection.on('error', connectDb());
+    // connection.on('error', connectDb());
 }
 
 connectDb();
