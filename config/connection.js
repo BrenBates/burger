@@ -2,11 +2,7 @@
 // Export the connection.
 var mysql = require("mysql");
 
-
 var connection;
-
-
-function connectDb() {
 
 if(process.env.CLEARDB_DATABASE_URL) {
     connection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL);
@@ -21,10 +17,6 @@ var connection = mysql.createConnection({
 
 }
 
-    // connection.on('error', connectDb());
-}
-
-connectDb();
 
 // Make connection.
 connection.connect(function (err) {
