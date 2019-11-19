@@ -4,7 +4,8 @@ var mysql = require("mysql");
 
    
 if(process.env.CLEARDB_DATABASE_URL) {
-    connection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL);
+    connection = mysql.createPool(process.env.CLEARDB_DATABASE_URL);
+    pool.query('select 1 + 1', (err, rows) => { /* */ });
 } else {
 var connection = mysql.createConnection({
     host: "localhost",
