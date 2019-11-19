@@ -2,12 +2,12 @@
 // Export the connection.
 var mysql = require("mysql");
 
-var connection;
+
 
 if(process.env.CLEARDB_DATABASE_URL) {
-    connection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL);
+   var pool = mysql.createPool(process.env.CLEARDB_DATABASE_URL);
 } else {
-var connection = mysql.createConnection({
+var pool = mysql.createPool({
     host: "localhost",
     port: 3306,
     user: "root",
@@ -19,14 +19,15 @@ var connection = mysql.createConnection({
 
 
 // Make connection.
-connection.connect(function (err) {
+pool.getConnection(function (err) {
     if (err) {
         console.error("error connecting: " + err.stack);
         return;
     }
-    console.log("connected as id " + connection.threadId);
+    console.log("connected as id " + pool.threadId);
 });
 
+pool.query('select 1 + 1', (err,rows) => { /* */});
 
 // Export connection for our ORM to use.
-module.exports = connection;
+module.exports = pool;
