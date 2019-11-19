@@ -17,7 +17,7 @@ const pool = mysql.createPool(process.env.CLEARDB_DATABASE_URL);
 // }
 
 // Make connection.
-connection.connect(function (err) {
+pool.connect(function (err) {
     if (err) {
         console.error("error connecting: " + err.stack);
         return;
