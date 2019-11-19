@@ -5,7 +5,7 @@ var mysql = require("mysql");
    
 if(process.env.CLEARDB_DATABASE_URL) {
     connection = mysql.createPool(process.env.CLEARDB_DATABASE_URL);
-    pool.query('select 1 + 1', (err, rows) => { /* */ });
+  
 } else {
 var connection = mysql.createConnection({
     host: "localhost",
@@ -24,6 +24,11 @@ connection.connect(function (err) {
     }
     console.log("connected as id " + connection.threadId);
 });
+
+
+if(process.env.CLEARDB_DATABASE_URL) {
+pool.query('select 1 + 1', (err, rows) => { /* */ });
+}
 
 // Export connection for our ORM to use.
 module.exports = connection;
