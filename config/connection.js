@@ -24,7 +24,7 @@ pool.getConnection(function (err) {
         console.error("error connecting: " + err.stack);
         return;
     }
-    console.log("connected as id " + pool.threadId);
+    console.log("connected as id " + pool.user);
 });
 
 pool.query('select 1 + 1', (err,rows) => { /* */});
