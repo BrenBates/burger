@@ -12,10 +12,14 @@
 <div class="clearfix">
 
 <div class = "burgerContainer">
+
+       <h2>Burgers to Devour!</h2>
   {{#each burgers}}
     {{#unless devoured}}
 
     <div class="wrapper">
+
+ 
 
         <button class="change-devoured" data-id="{{id}}" data-newdevoured=1>
             {{#if devoured}}Make another!{{else}}DEVOUR!{{/if}}
@@ -36,6 +40,8 @@
 <div class = "burgerContainer">
 
 {{!-- Burgers that have been devoured --}}
+
+<h2>Devoured Burgers</h2>
 
   {{#each burgers}}
     {{#if devoured}}
